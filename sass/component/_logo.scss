@@ -1,0 +1,83 @@
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.logo__link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo__link__img {
+  display: block;
+  width: 40px;
+  height: 40px;
+
+  @include mobile {
+    width: 52px;
+    height: 52px;
+  }
+}
+
+.logo__link__text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  letter-spacing: 0.32px;
+  text-transform: uppercase;
+  span {
+    color: var(--accent-color);
+  }
+
+  @include mobile {
+    font-size: 18px;
+  }
+}
+
+.logo__city {
+  margin-left: 30px;
+
+  display: flex;
+  flex-direction: column;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+
+  span {
+    text-transform: lowercase;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: normal;
+  }
+
+  @include mobile {
+    margin-left: 60px;
+
+    font-size: 24px;
+    letter-spacing: 0.32px;
+    letter-spacing: 2.2px;
+
+    span {
+      font-size: 14px;
+    }
+  }
+}
+
+.logo__slogan {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  background: var(--accent-color);
+  padding: 4px 0;
+  font-size: 14px;
+  text-transform: capitalize;
+  text-align: center;
+}
