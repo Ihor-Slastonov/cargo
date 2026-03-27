@@ -8,3 +8,11 @@ body {
 .lists {
   list-style: none;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
