@@ -16,3 +16,11 @@ html {
 body.no-scroll {
   overflow: hidden;
 }
+
+#services,
+#vehicles,
+#about,
+#contacts {
+  scroll-margin-top: 72px;
+  scroll-behavior: smooth;
+}
