@@ -11,6 +11,7 @@
   --hero-bg-color: #2f303a;
   --section-second-color: #f5f4fa;
   --address-link-color: rgba(255, 255, 255, 0.6);
+  --vh: 1vh;
 }
 
 h1,
@@ -45,6 +46,9 @@ body {
   font-weight: 400;
   background-color: var(--bg-color);
   color: var(--primary-text-color);
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
 }
 
 .lists {
@@ -63,8 +67,12 @@ body.no-scroll {
 #vehicles,
 #about,
 #contacts {
-  scroll-margin-top: 72px;
+  scroll-margin-top: 152px;
   scroll-behavior: smooth;
+}
+
+main {
+  flex: 1;
 }
 
 .visually-hidden {
@@ -478,6 +486,79 @@ body.no-scroll {
   box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.4);
+}
+
+.header__contacts {
+  position: absolute;
+  bottom: -92px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 92px;
+  background-color: var(--accent-color);
+  box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.4);
+}
+.header__contacts__list__item__link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+}
+.header__contacts__list__item__icon {
+  fill: white;
+}
+.header__contacts__socials {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  gap: 16px;
+}
+@media screen and (min-width: 480px) {
+  .header__contacts__socials {
+    gap: 24px;
+  }
+}
+.header__contacts__socials__item {
+  width: 42px;
+  height: 42px;
+  background-color: white;
+  border-radius: 50%;
+  position: relative;
+}
+@media screen and (min-width: 480px) {
+  .header__contacts__socials__item {
+    width: 52px;
+    height: 52px;
+  }
+}
+.header__contacts__socials__item svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@media screen and (min-width: 480px) {
+  .header__contacts__socials__item svg {
+    width: 32px;
+    height: 32px;
+  }
+}
+.header__contacts__mail a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 0;
+}
+.header__contacts__mail a svg {
+  fill: white;
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  color: white;
 }
 
 .hero__overlay {
