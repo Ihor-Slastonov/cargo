@@ -94,6 +94,7 @@ main {
   margin-left: auto;
   margin-right: auto;
   padding: 0 15px;
+  border: 1px solid red;
 }
 @media screen and (min-width: 480px) {
   .container {
@@ -152,6 +153,15 @@ main {
     font-size: 18px;
   }
 }
+@media screen and (min-width: 768px) {
+  .logo__link__text {
+    font-size: 16px;
+  }
+  .logo__link__text span {
+    font-size: 14px;
+    letter-spacing: 1.54px;
+  }
+}
 
 .logo__city {
   margin-left: 30px;
@@ -180,6 +190,11 @@ main {
     font-size: 14px;
   }
 }
+@media screen and (min-width: 768px) {
+  .logo__city {
+    margin-left: 10px;
+  }
+}
 
 .logo__slogan {
   display: flex;
@@ -200,6 +215,11 @@ main {
   outline: transparent;
   border: transparent;
   fill: var(--accent-color);
+}
+@media screen and (min-width: 768px) {
+  .menu-open-btn {
+    display: none;
+  }
 }
 
 .btn--primary {
@@ -477,15 +497,16 @@ main {
 }
 
 .header {
-  border-bottom: 1px solid #237227;
   padding: 10px 0;
   position: sticky;
   top: 0;
   z-index: 99;
   background: #fff;
-  box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.4);
-  -webkit-box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.4);
+}
+@media screen and (min-width: 768px) {
+  .header {
+    padding: 0 0 10px;
+  }
 }
 
 .header__contacts {
@@ -500,14 +521,34 @@ main {
   -webkit-box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.4);
 }
+@media screen and (min-width: 768px) {
+  .header__contacts {
+    position: static;
+    box-shadow: none;
+    background-color: transparent;
+    bottom: 0;
+    height: auto;
+  }
+  .header__contacts__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
 .header__contacts__list__item__link {
   display: flex;
   align-items: center;
   gap: 8px;
   padding: 6px 0;
 }
+@media screen and (min-width: 768px) {
+  .header__contacts__list__item__link {
+    gap: 4px;
+  }
+}
 .header__contacts__list__item__icon {
-  fill: white;
+  fill: inherit;
 }
 .header__contacts__socials {
   display: flex;
@@ -518,6 +559,14 @@ main {
 @media screen and (min-width: 480px) {
   .header__contacts__socials {
     gap: 24px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .header__contacts__socials {
+    gap: 10px;
+    position: absolute;
+    right: 150px;
+    bottom: 0;
   }
 }
 .header__contacts__socials__item {
@@ -533,6 +582,12 @@ main {
     height: 52px;
   }
 }
+@media screen and (min-width: 768px) {
+  .header__contacts__socials__item {
+    width: 36px;
+    height: 36px;
+  }
+}
 .header__contacts__socials__item svg {
   position: absolute;
   top: 50%;
@@ -545,6 +600,12 @@ main {
     height: 32px;
   }
 }
+@media screen and (min-width: 768px) {
+  .header__contacts__socials__item svg {
+    width: 24px;
+    height: 24px;
+  }
+}
 .header__contacts__mail a {
   display: flex;
   align-items: center;
@@ -552,12 +613,71 @@ main {
   padding: 6px 0;
 }
 .header__contacts__mail a svg {
-  fill: white;
+  fill: inherit;
+}
+@media screen and (min-width: 768px) {
+  .header__contacts__mail a {
+    gap: 4px;
+  }
 }
 
 .header__nav {
   display: flex;
   align-items: center;
+  color: white;
+  fill: white;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 15px;
+}
+@media screen and (min-width: 480px) {
+  .header__nav {
+    max-width: 480px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .header__nav {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+    color: black;
+    fill: black;
+    position: relative;
+  }
+}
+@media screen and (min-width: 768px) {
+  .header__nav__contacts {
+    display: flex;
+    gap: 4px;
+    margin-left: auto;
+    position: relative;
+  }
+}
+
+.header__menu {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .header__menu {
+    display: block;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: -30px;
+    background: var(--accent-color);
+    padding: 10px 0;
+    box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.4);
+  }
+}
+.header__menu__list {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
   color: white;
 }
 
