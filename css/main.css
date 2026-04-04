@@ -777,7 +777,7 @@ main {
 }
 @media screen and (min-width: 768px) {
   .advantages__card__title {
-    text-align: left;
+    font-size: 18px;
   }
 }
 
@@ -794,6 +794,14 @@ main {
   align-items: center;
   gap: 30px;
 }
+@media screen and (min-width: 768px) {
+  .services__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    align-items: stretch;
+  }
+}
 
 .services__item {
   width: 100%;
@@ -808,8 +816,16 @@ main {
 .services__item:hover .services__item__img img, .services__item:focus .services__item__img img {
   transform: scale(1.1);
 }
+@media screen and (min-width: 768px) {
+  .services__item {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+}
 
 .services__item__img {
+  display: block;
   width: 100%;
   overflow: hidden;
 }
@@ -818,9 +834,22 @@ main {
     height: 460px;
   }
 }
+@media screen and (min-width: 768px) {
+  .services__item__img {
+    height: 374px;
+  }
+}
 
 .services__item__box {
-  padding: 30px 10px 24px;
+  padding: 10px 10px 24px;
+}
+@media screen and (min-width: 768px) {
+  .services__item__box {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 10px 20px;
+    flex-grow: 1;
+  }
 }
 
 .services__item__title {
@@ -832,9 +861,19 @@ main {
   letter-spacing: 0.03em;
   color: var(--title-text-color);
 }
+@media screen and (min-width: 768px) {
+  .services__item__title {
+    font-size: 18px;
+  }
+}
 
 .services__item__text {
   margin-bottom: 20px;
+}
+@media screen and (min-width: 768px) {
+  .services__item__text {
+    flex-grow: 1;
+  }
 }
 
 .services__item__price {
@@ -845,6 +884,11 @@ main {
   font-weight: 900;
   font-size: 24px;
   color: var(--accent-second-color);
+}
+@media screen and (min-width: 768px) {
+  .services__item__price span {
+    font-size: 20px;
+  }
 }
 
 .section.vehicle {
