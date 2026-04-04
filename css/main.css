@@ -904,6 +904,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 40px;
+  align-items: center;
 }
 
 .vehicle__list__item {
@@ -913,10 +914,26 @@ main {
   border-radius: 0px 0px 4px 4px;
   overflow: hidden;
 }
+@media screen and (min-width: 768px) {
+  .vehicle__list__item {
+    width: 600px;
+  }
+}
 .vehicle__list__item__img {
+  display: block;
   width: 100%;
   overflow: hidden;
   height: 294px;
+}
+@media screen and (min-width: 768px) {
+  .vehicle__list__item__img {
+    height: 355px;
+  }
+}
+.vehicle__list__item__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .vehicle__list__item__box {
   padding: 20px 10px 30px;
