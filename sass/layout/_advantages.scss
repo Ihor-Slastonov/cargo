@@ -45,8 +45,9 @@
   text-align: center;
   text-transform: uppercase;
   color: var(--title-text-color);
+
   @include tablet {
-    text-align: left;
+    font-size: 18px;
   }
 }
 

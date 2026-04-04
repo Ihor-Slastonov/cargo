@@ -36,6 +36,14 @@
   @include mobile {
     font-size: 18px;
   }
+
+  @include tablet {
+    font-size: 16px;
+    span {
+      font-size: 14px;
+      letter-spacing: 1.54px;
+    }
+  }
 }
 
 .logo__city {
@@ -66,6 +74,10 @@
     span {
       font-size: 14px;
     }
+  }
+
+  @include tablet {
+    margin-left: 10px;
   }
 }
 
