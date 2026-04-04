@@ -485,6 +485,7 @@ main {
   box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.4);
   -webkit-box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 .call-btn svg {
   position: absolute;
@@ -494,6 +495,21 @@ main {
 }
 .call-btn {
   animation: pulse 2s infinite;
+}
+.call-btn:hover {
+  transform: scale(1.1);
+  background-color: var(--accent-color);
+}
+.call-btn:hover svg {
+  fill: white;
+}
+@media screen and (min-width: 768px) {
+  .call-btn {
+    right: 40px;
+    bottom: 40px;
+    width: 70px;
+    height: 70px;
+  }
 }
 
 .header {
