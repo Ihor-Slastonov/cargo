@@ -1,0 +1,52 @@
+.lang__list {
+  display: none;
+  gap: 11px;
+
+  @include tablet {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  @include desktop {
+    position: static;
+  }
+}
+
+.lang__link {
+  position: relative;
+  display: block;
+  padding: 8px 0;
+  color: #8f8d8d;
+  font-size: 14px;
+
+  &:first-child {
+    &::after {
+      content: "";
+      display: block;
+      height: 80%;
+      width: 1px;
+      background-color: #8f8d8d;
+      position: absolute;
+      top: 10%;
+      right: -5px;
+    }
+  }
+
+  @include desktop {
+    font-size: 20px;
+  }
+}
+
+.current__page {
+  color: black;
+
+  &::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: var(--accent-action-color);
+  }
+}

@@ -7,6 +7,9 @@
   @include tablet {
     padding: 0 0 10px;
   }
+  @include desktop {
+    padding: 10px 0;
+  }
 }
 
 .header__contacts {
@@ -22,7 +25,7 @@
   -moz-box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.4);
 
   @include tablet {
-    position: static;
+    position: relative;
     box-shadow: none;
     background-color: transparent;
     bottom: 0;
@@ -52,6 +55,9 @@
           color: var(--accent-second-color);
           fill: var(--accent-second-color);
         }
+      }
+      @include desktop {
+        padding: 10px 0;
       }
     }
     &__icon {
@@ -130,6 +136,10 @@
           fill: var(--accent-second-color);
         }
       }
+
+      @include desktop {
+        padding: 10px 0;
+      }
     }
   }
 }
@@ -165,6 +175,10 @@
       margin-left: auto;
       position: relative;
     }
+
+    @include desktop {
+      gap: 20px;
+    }
   }
 }
 
@@ -173,15 +187,20 @@
 
   @include tablet {
     display: block;
-    position: absolute;
+    position: fixed;
     width: 100%;
+    top: 68px;
     left: 0;
-    bottom: -30px;
+    right: 0;
     background: var(--accent-color);
     padding: 10px 0;
     box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.4);
     -webkit-box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.4);
     -moz-box-shadow: 0px 3px 12px 0px rgba(0, 0, 0, 0.4);
+
+  }
+  @include desktop {
+    top: 96px;
   }
   &__list {
     display: flex;
@@ -219,3 +238,8 @@
     }
   }
 }
+
+.header__btn {
+  margin-right: 30px;
+}
+
