@@ -6,6 +6,21 @@ const openBurger = document.querySelector("[data-openBurger]");
 const closeBurger = document.querySelector("[data-closeBurger]");
 const burgerBackdrop = document.querySelector("[data-burgerBackdrop]");
 const burgerLinks = document.querySelectorAll("[data-bur-links]");
+const headerMenu = document.querySelector(".header__menu");
+
+function handleScroll() {
+  if (window.innerWidth >= 1200) {
+    if (window.scrollY > 50) {
+      headerMenu.classList.add("header__menu--small");
+    } else {
+      headerMenu.classList.remove("header__menu--small");
+    }
+  } else {
+    headerMenu.classList.remove("header__menu--small");
+  }
+}
+
+window.addEventListener("scroll", handleScroll);
 
 burgerLinks.forEach((link) => {
   link.addEventListener("click", () => {
