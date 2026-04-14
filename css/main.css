@@ -1385,11 +1385,25 @@ main {
   }
 }
 
+@media screen and (min-width: 1200px) {
+  .contacts__block {
+    display: flex;
+    align-items: top;
+    justify-content: center;
+    gap: 60px;
+  }
+}
+
 .contacts__list {
   display: flex;
   flex-direction: column;
   gap: 20px;
   margin-bottom: 30px;
+}
+@media screen and (min-width: 1200px) {
+  .contacts__list {
+    align-items: flex-start;
+  }
 }
 .contacts__list__item__link {
   display: flex;
@@ -1415,6 +1429,11 @@ main {
   border: 2px solid var(--accent-second-color);
   border-radius: 8px;
   overflow: hidden;
+}
+@media screen and (min-width: 1200px) {
+  .contacts__map {
+    width: 600px;
+  }
 }
 
 .footer {

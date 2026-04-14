@@ -1,7 +1,15 @@
 .section.contacts {
   padding-top: 30px;
-  @include desktop{
+  @include desktop {
     padding-top: 48px;
+  }
+}
+.contacts__block {
+  @include desktop {
+    display: flex;
+    align-items: top;
+    justify-content: center;
+    gap: 60px;
   }
 }
 
@@ -10,6 +18,9 @@
   flex-direction: column;
   gap: 20px;
   margin-bottom: 30px;
+  @include desktop{
+    align-items: flex-start;
+  }
 
   &__item__link {
     display: flex;
@@ -42,4 +53,8 @@
   border: 2px solid var(--accent-second-color);
   border-radius: 8px;
   overflow: hidden;
+
+  @include desktop {
+    width: 600px;
+  }
 }
