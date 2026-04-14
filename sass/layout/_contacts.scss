@@ -1,5 +1,8 @@
 .section.contacts {
-  padding-top: 0;
+  padding-top: 30px;
+  @include desktop{
+    padding-top: 48px;
+  }
 }
 
 .contacts__list {

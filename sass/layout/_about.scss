@@ -1,12 +1,11 @@
-.section.about {
-  padding-bottom: 0;
-}
-
 .about__list {
   margin-top: 30px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
+  @include desktop {
+    grid-template-columns: repeat(4, 1fr);
+  }
   &__item {
     display: flex;
     flex-direction: column;
