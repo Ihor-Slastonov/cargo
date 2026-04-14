@@ -18,6 +18,10 @@
     gap: 20px;
     align-items: stretch;
   }
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px 20px;
+  }
 }
 
 .services__item {

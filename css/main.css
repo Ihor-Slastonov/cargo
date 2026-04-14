@@ -1050,6 +1050,12 @@ main {
     align-items: stretch;
   }
 }
+@media screen and (min-width: 1200px) {
+  .services__list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px 20px;
+  }
+}
 
 .services__item {
   width: 100%;
