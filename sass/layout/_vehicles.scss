@@ -15,6 +15,11 @@
   flex-direction: column;
   gap: 40px;
   align-items: center;
+
+  @include desktop {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .vehicle__list__item {
@@ -29,6 +34,9 @@
 
   @include tablet {
     width: 600px;
+  }
+  @include desktop {
+    max-width: 600px;
   }
 
   &__img {

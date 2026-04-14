@@ -1160,6 +1160,12 @@ main {
   gap: 40px;
   align-items: center;
 }
+@media screen and (min-width: 1200px) {
+  .vehicle__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
 .vehicle__list__item {
   width: 100%;
@@ -1171,6 +1177,11 @@ main {
 @media screen and (min-width: 768px) {
   .vehicle__list__item {
     width: 600px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .vehicle__list__item {
+    max-width: 600px;
   }
 }
 .vehicle__list__item__img {
