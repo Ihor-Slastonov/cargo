@@ -1,5 +1,8 @@
 .section.advantages {
-  padding-bottom: 0;
+  padding-bottom: 30px;
+  @include desktop {
+    padding-bottom: 48px;
+  }
 }
 
 .advantages__list {
@@ -10,10 +13,18 @@
   @include tablet {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  @include desktop {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .advantages__card {
   width: 100%;
+
+  @include desktop {
+    width: 270px;
+  }
 }
 
 .advantages__card__icon {
@@ -22,6 +33,7 @@
   justify-content: center;
   margin-bottom: 30px;
   height: 120px;
+  max-width: 450px;
 
   background-color: var(--section-second-color);
   border-radius: 4px;
@@ -30,9 +42,6 @@
     width: 70px;
     height: 70px;
     color: var(--accent-color);
-  }
-  @include mobile {
-    max-width: 450px;
   }
 }
 
