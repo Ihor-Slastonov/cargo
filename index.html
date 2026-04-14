@@ -4,6 +4,26 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Профессиональные грузоперевозки и услуги грузчиков в Одессе. Квартирные и офисные переезды, вывоз мусора, занос стройматериалов. Низкие цены, работаем 24/7.">
+    <meta name="keywords"
+        content="грузоперевозки одесса, грузчики одесса, переезд одесса, вывоз мусора одесса, разнорабочие одесса">
+    <link rel="canonical" href="https://perevozki-odessa.pp.ua/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://perevozki-odessa.pp.ua/">
+    <meta property="og:title" content="Охотники за грузом — Быстрые грузоперевозки в Одессе">
+    <meta property="og:description"
+        content="Найдём, заберём и доставим ваш груз точно в срок. Грузчики от 300 грн/час. Звоните!">
+    <meta property="og:image" content="https://perevozki-odessa.pp.ua/img/og-image.jpg">
+    <meta property="og:site_name" content="Охотники за грузом">
+    <meta property="og:locale" content="ru_RU">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Грузоперевозки Одесса | Охотники за грузом">
+    <meta name="twitter:description" content="Переезды и грузчики в Одессе. Надежно и аккуратно.">
+    <meta name="twitter:image" content="https://perevozki-odessa.pp.ua/img/og-image.jpg">
+
     <title>Охотники за грузом. Грузоперевозки Одесса. Грузчики Одесса</title>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
@@ -63,7 +83,7 @@
                                 <a class="burger__list__item__link" href="mailto:allo01082019odessa@gmail.com"><svg
                                         class="burger__list__item__icon" width="24" height="24">
                                         <use href="./img/icons3.svg#icon-envelop"></use>
-                                    </svg>cargo-hunters@gmail.com</a>
+                                    </svg>perevozki.odesa@gmail.com</a>
                             </li>
                         </ul>
 
@@ -100,7 +120,7 @@
                         </ul>
                     </div>
                 </div>
-                <!-- ---- -->
+
                 <!-- header contacts -->
                 <div class="header__contacts">
                     <div class="header__nav">
@@ -621,14 +641,25 @@
                     </div>
 
                     <!-- Hidden service field -->
-                    <input class="form__input" type="hidden" name="service" id="service" value="Консультация" required
-                        readonly />
+                    <input class="form__input" type="hidden" name="service" id="service" value="Консультация" />
 
                     <div>
                         <label class="form__label">Комментарии</label>
                         <textarea class="form__textarea" name="comment" id="comment"
                             placeholder="Оставьте комментарий к заказу"></textarea>
                     </div>
+
+                    <div style="display:none;">
+                        <label>Не заполняйте это поле</label>
+                        <input type="text" name="company">
+                    </div>
+
+                    <label>
+                        <input type="checkbox" required>
+                        Я соглашаюсь с <a class="policy__link" href="/policy/ru.html" target="_blank"
+                            rel="noopener noreferrer">политикой
+                            конфиденциальности</a>
+                    </label>
 
                     <button type="submit" class="btn--primary btn--full">Отправить</button>
                 </form>
@@ -683,8 +714,8 @@
                     </ul>
 
                     <div class="contacts__map">
-                        <iframe src="https://www.google.com/maps?q=Одесса+65000&output=embed" width="100%" height="400"
-                            style="border:0;" loading="lazy">
+                        <iframe src="https://www.google.com/maps?q=Одесса+65000&output=embed" height="400"
+                            style="width: 100%; border: 0;" loading="lazy">
                         </iframe>
                     </div>
                 </div>
@@ -704,21 +735,21 @@
                 </svg>
             </button>
             <h3 class="title small">Заполните форму заявки</h3>
-            <form class="form" id="form">
+            <form class="form" id="modal-form">
                 <div>
-                    <label class="form__label" for="name">Имя</label>
+                    <label class="form__label" for="modal-name">Имя</label>
                     <div class="form__field">
-                        <input class="form__input" type="text" name="name" id="name" placeholder="Константин Николаевич"
-                            required />
+                        <input class="form__input" type="text" name="name" id="modal-name"
+                            placeholder="Константин Николаевич" required />
                         <svg class="form__input__icon" width="18" height="18">
                             <use href="./img/icons3.svg#icon-user"></use>
                         </svg>
                     </div>
                 </div>
                 <div>
-                    <label class="form__label" for="telephone">Телефон</label>
+                    <label class="form__label" for="modal-telephone">Телефон</label>
                     <div class="form__field">
-                        <input class="form__input" type="tel" name="telephone" id="telephone"
+                        <input class="form__input" type="tel" name="telephone" id="modal-telephone"
                             placeholder="+380 (XX) XXX-XX-XX" required />
                         <svg class="form__input__icon" width="18" height="18">
                             <use href="./img/icons3.svg#icon-phone"></use>
@@ -728,7 +759,7 @@
                 <div>
                     <label class="form__label" for="telephone">Услуга</label>
                     <div class="form__field">
-                        <input class="form__input" type="text" name="service" id="service-input" value="" required
+                        <input class="form__input" type="text" name="service" id="modal-service-input" value=""
                             readonly />
                         <svg class="form__input__icon" width="18" height="18">
                             <use href="./img/icons3.svg#icon-book"></use>
@@ -738,9 +769,20 @@
                 </div>
                 <div>
                     <label class="form__label">Комментарии</label>
-                    <textarea class="form__textarea" name="comment" id="comment"
+                    <textarea class="form__textarea" name="comment" id="modal-comment"
                         placeholder="Оставьте комментарий к заказу"></textarea>
                 </div>
+                <div style="display:none;">
+                    <label>Не заполняйте это поле</label>
+                    <input type="text" name="company">
+                </div>
+
+                <label>
+                    <input type="checkbox" required>
+                    Я соглашаюсь с <a class="policy__link" href="/policy/ru.html" target="_blank"
+                        rel="noopener noreferrer">политикой
+                        конфиденциальности</a>
+                </label>
 
                 <button type="submit" class="btn--primary btn--full">Отправить</button>
             </form>

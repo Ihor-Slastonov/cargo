@@ -1,12 +1,24 @@
 const openBtn = document.querySelectorAll("[data-open]");
 const closeBtn = document.querySelector("[data-close]");
 const backdrop = document.querySelector("[data-backdrop]");
-const serviceInput = document.getElementById("service-input");
+const serviceInput = document.getElementById("modal-service-input");
 const openBurger = document.querySelector("[data-openBurger]");
 const closeBurger = document.querySelector("[data-closeBurger]");
 const burgerBackdrop = document.querySelector("[data-burgerBackdrop]");
 const burgerLinks = document.querySelectorAll("[data-bur-links]");
 const headerMenu = document.querySelector(".header__menu");
+const forms = document.querySelectorAll("form");
+
+forms.forEach((form) => {
+  form.addEventListener("submit", function (e) {
+    const honeypot = form.querySelector('input[name="company"]');
+    if (honeypot && honeypot.value.trim() !== "") {
+      e.preventDefault();
+      console.log("Bot detected 🐛");
+      return false;
+    }
+  });
+});
 
 function handleScroll() {
   if (window.innerWidth >= 1200) {
