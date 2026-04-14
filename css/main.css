@@ -576,7 +576,7 @@ main {
   .lang__list {
     display: flex;
     position: absolute;
-    top: 0;
+    bottom: 0;
     right: 0;
   }
 }
