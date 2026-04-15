@@ -40,6 +40,8 @@
   @include desktop {
     min-width: 528px;
     min-height: 581px;
+    max-width: 1000px;
+    top: 120px;
   }
 
   .backdrop.is-hidden & {

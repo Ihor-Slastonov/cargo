@@ -1,3 +1,25 @@
+.logo__link__text.logo__link__ua {
+  span {
+    font-size: 13px;
+
+    @include tablet {
+      font-size: 12px;
+      letter-spacing: 0;
+    }
+    @include desktop {
+      font-size: 15px;
+    }
+  }
+}
+.logo__city.logo__city__ua {
+  span {
+    @include desktop {
+      font-size: 14px;
+      letter-spacing: 0.68px;
+    }
+  }
+}
+
 .nav {
   display: flex;
   align-items: center;

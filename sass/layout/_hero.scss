@@ -1,3 +1,10 @@
+.hero__overlay__title.hero__title__ua {
+  font-size: 24px;
+  @include desktop{
+    font-size: 38px;
+  }
+}
+
 .hero__overlay {
   margin-left: auto;
   margin-right: auto;

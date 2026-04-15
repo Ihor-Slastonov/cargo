@@ -130,6 +130,28 @@ main {
   }
 }
 
+.logo__link__text.logo__link__ua span {
+  font-size: 13px;
+}
+@media screen and (min-width: 768px) {
+  .logo__link__text.logo__link__ua span {
+    font-size: 12px;
+    letter-spacing: 0;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .logo__link__text.logo__link__ua span {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .logo__city.logo__city__ua span {
+    font-size: 14px;
+    letter-spacing: 0.68px;
+  }
+}
+
 .nav {
   display: flex;
   align-items: center;
@@ -396,6 +418,8 @@ main {
   .modal {
     min-width: 528px;
     min-height: 581px;
+    max-width: 1000px;
+    top: 120px;
   }
 }
 .backdrop.is-hidden .modal {
@@ -576,6 +600,13 @@ main {
   }
 }
 
+.lang__list.lang__list__burger {
+  display: flex;
+  position: absolute;
+  bottom: 60px;
+  font-size: 18px;
+}
+
 .lang__list {
   display: none;
   gap: 11px;
@@ -623,6 +654,22 @@ main {
 .current__page::after {
   content: "";
   display: block;
+  height: 2px;
+  width: 100%;
+  background-color: var(--accent-action-color);
+}
+
+.current__page__ua {
+  color: black;
+  position: relative;
+}
+.current__page__ua::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 6px;
+  left: 0;
+  right: 0;
   height: 2px;
   width: 100%;
   background-color: var(--accent-action-color);
@@ -884,6 +931,15 @@ main {
 
 .header__btn {
   margin-right: 30px;
+}
+
+.hero__overlay__title.hero__title__ua {
+  font-size: 24px;
+}
+@media screen and (min-width: 1200px) {
+  .hero__overlay__title.hero__title__ua {
+    font-size: 38px;
+  }
 }
 
 .hero__overlay {

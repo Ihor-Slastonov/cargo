@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="uk">
+<html lang="uk_UA">
 
 <head>
     <meta charset="UTF-8" />
@@ -47,10 +47,10 @@
                     <div class="logo__link__img">
                         <img src="./img/logo.png" alt="логотип чоловік у формі з коробкою в руках" loading="lazy" />
                     </div>
-                    <p class="logo__link__text">Мисливці <span>за вантажем</span></p>
+                    <p class="logo__link__text logo__link__ua">Мисливці <span>за вантажем</span></p>
                 </a>
 
-                <p class="logo__city">Одеса <span>перевезення</span></p>
+                <p class="logo__city logo__city__ua">Одеса <span>перевезення</span></p>
 
                 <button type="button" class="menu-open-btn" data-openBurger>
                     <svg width="40" height="40">
@@ -120,6 +120,12 @@
                                 <a href="#contacts" class="burger__nav__list__link" data-bur-links>Контакти</a>
                             </li>
                         </ul>
+
+                        <div class="lang__list lang__list__burger">
+                            <a href="/" class="lang__link current__page__ua"
+                                aria-label="перемикання мови сторінки на українську">UK</a>
+                            <a href="/ru" class="lang__link" aria-label="перемикання мови сторінки на російську">RU</a>
+                        </div>
                     </div>
                 </div>
 
@@ -176,7 +182,7 @@
                 <button type="button" data-open data-service="Консультація"
                     class="header__btn btn--primary btn--yellow btn--desktop">Залишити заявку</button>
                 <div class="lang__list">
-                    <a href="/" class="lang__link current__page"
+                    <a href="/" class="lang__link current__page__ua"
                         aria-label="перемикання мови сторінки на українську">UK</a>
                     <a href="/ru" class="lang__link" aria-label="перемикання мови сторінки на російську">RU</a>
                 </div>
@@ -194,7 +200,7 @@
     <main>
         <section>
             <div class="hero__overlay">
-                <h1 class="hero__overlay__title">Вантажоперевезення <br />по Одесі</h1>
+                <h1 class="hero__overlay__title hero__title__ua">Вантажоперевезення <br />по Одесі</h1>
                 <p class="hero__overlay__text">Знайдемо, заберемо та доставимо ваш вантаж точно в строк</p>
                 <button type="button" class="btn--primary" data-open data-service="Консультація">Залишити
                     заявку</button>
@@ -651,7 +657,7 @@
                             <a class="contacts__list__item__link" href="mailto:perevozki.odesa@gmail.com"><svg
                                     class="contacts__list__item__icon" width="24" height="24">
                                     <use href="./img/icons3.svg#icon-envelop"></use>
-                                </svg>cargo-hunters@gmail.com</a>
+                                </svg>perevozki.odesa@gmail.com </a>
                         </li>
                         <li class="contacts__list__item">
                             <a class="contacts__list__item__link" href="https://t.me/+380675599544" target="_blank"
@@ -669,8 +675,9 @@
                         </li>
                     </ul>
                     <div class="contacts__map">
-                        <iframe src="https://www.google.com/maps/embed?..." height="400" style="width: 100%; border: 0;"
-                            loading="lazy"></iframe>
+                        <iframe src="https://www.google.com/maps?q=Одесcа+65000&output=embed" height="400"
+                            style="width: 100%; border: 0;" loading="lazy">
+                        </iframe>
                     </div>
                 </div>
             </div>
