@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="uk_UA">
+<html lang="uk">
 
 <head>
     <meta charset="UTF-8" />
@@ -24,6 +24,16 @@
     <meta name="twitter:description" content="Переїзди та вантажники в Одесі. Надійно та акуратно.">
     <meta name="twitter:image" content="https://perevozki-odessa.pp.ua/img/og-image.jpg">
 
+    <meta http-equiv="Content-Security-Policy" content="
+default-src 'self';
+img-src 'self' data: https:;
+script-src 'self' https:;
+style-src 'self' https: 'unsafe-inline';
+font-src 'self' https:;
+connect-src 'self' https:;
+frame-src https://www.google.com;
+">
+
     <link rel="alternate" hreflang="uk" href="https://perevozki-odessa.pp.ua/" />
     <link rel="alternate" hreflang="ru" href="https://perevozki-odessa.pp.ua/ru/" />
     <link rel="alternate" hreflang="x-default" href="https://perevozki-odessa.pp.ua/" />
@@ -31,6 +41,8 @@
     <title>Мисливці за вантажем. Вантажоперевезення Одеса. Вантажники Одеса</title>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Montserrat:wght@600;700;800;900&display=swap"
         rel="stylesheet">
@@ -45,7 +57,8 @@
             <div class="nav">
                 <a href="/" class="logo__link">
                     <div class="logo__link__img">
-                        <img src="./img/logo.png" alt="логотип чоловік у формі з коробкою в руках" loading="lazy" />
+                        <img src="./img/logo.png" alt="логотип чоловік у професійній формі з коробкою в руках"
+                            loading="lazy" />
                     </div>
                     <p class="logo__link__text logo__link__ua">Мисливці <span>за вантажем</span></p>
                 </a>
@@ -198,9 +211,9 @@
         </div>
     </header>
     <main>
-        <section>
+        <section class="hero">
             <div class="hero__overlay">
-                <h1 class="hero__overlay__title hero__title__ua">Вантажоперевезення <br />по Одесі</h1>
+                <h1 class="hero__overlay__title hero__title__ua">Вантажоперевезення <br />Одеса</h1>
                 <p class="hero__overlay__text">Знайдемо, заберемо та доставимо ваш вантаж точно в строк</p>
                 <button type="button" class="btn--primary" data-open data-service="Консультація">Залишити
                     заявку</button>
@@ -675,7 +688,8 @@
                         </li>
                     </ul>
                     <div class="contacts__map">
-                        <iframe src="https://www.google.com/maps?q=Одесcа+65000&output=embed" height="400"
+                        <iframe title="карта вантажних перевезень в Одесі. Вантажні перевезення в межах міста"
+                            src="https://www.google.com/maps?q=Одеcа+65000&output=embed" height="400"
                             style="width: 100%; border: 0;" loading="lazy">
                         </iframe>
                     </div>

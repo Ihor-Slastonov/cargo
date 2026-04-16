@@ -23,6 +23,14 @@
     <meta name="twitter:title" content="Грузоперевозки Одесса | Охотники за грузом">
     <meta name="twitter:description" content="Переезды и грузчики в Одессе. Надежно и аккуратно.">
     <meta name="twitter:image" content="https://perevozki-odessa.pp.ua/img/og-image.jpg">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self';
+img-src 'self' data: https:;
+script-src 'self' https:;
+style-src 'self' https: 'unsafe-inline';
+font-src 'self' https:;
+connect-src 'self' https:;
+frame-src https://www.google.com;
+">
 
     <link rel="alternate" hreflang="uk" href="https://perevozki-odessa.pp.ua/" />
     <link rel="alternate" hreflang="ru" href="https://perevozki-odessa.pp.ua/ru/" />
@@ -31,6 +39,9 @@
     <title>Охотники за грузом. Грузоперевозки Одесса. Грузчики Одесса</title>
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Montserrat:wght@600;700;800;900&display=swap"
         rel="stylesheet">
@@ -203,7 +214,7 @@
     </header>
     <main>
         <!-- Section Hero -->
-        <section>
+        <section class="hero">
             <div class="hero__overlay">
                 <h1 class="hero__overlay__title">Грузоперевозки <br />по Одессе</h1>
                 <p class="hero__overlay__text">Найдём, заберём и доставим ваш груз точно в срок</p>
@@ -724,7 +735,8 @@
                     </ul>
 
                     <div class="contacts__map">
-                        <iframe src="https://www.google.com/maps?q=Одесcа+65000&output=embed" height="400"
+                        <iframe title="карта грузоперевозок в Одессе. Грузоперевозки в черте города"
+                            src="https://www.google.com/maps?q=Одесcа+65000&output=embed" height="400"
                             style="width: 100%; border: 0;" loading="lazy">
                         </iframe>
                     </div>
