@@ -5,14 +5,17 @@ exports.handler = async (event) => {
 
   try {
     const { orderId, date, name, phone, service, comment } = JSON.parse(
-      event.body,
+      event.body
     );
 
     const TOKEN = process.env.TG_TOKEN;
-    // Читаем строку из ENV и превращаем в массив ["123", "456"]
     const CHAT_IDS = process.env.TG_CHAT_ID
       ? process.env.TG_CHAT_ID.split(",")
       : [];
+
+    // 🔍 DEBUG ENV
+    console.log("TOKEN:", TOKEN ? "OK" : "MISSING");
+    console.log("CHAT_IDS:", CHAT_IDS);
 
     const message = [
       `<b>📦 ЗАМОВЛЕННЯ: ${orderId}</b>`,
@@ -24,12 +27,12 @@ exports.handler = async (event) => {
       `<b>💬 Коментар:</b> ${comment || "-"}`,
     ].join("\n");
 
-    // Массив для хранения результатов всех отправок
     const results = [];
 
-    // Цикл по всем ID из массива
     for (const id of CHAT_IDS) {
-      const trimmedId = id.trim(); // Убираем лишние пробелы, если они есть
+      const trimmedId = id.trim();
+
+      console.log("➡️ Отправка в chat_id:", trimmedId);
 
       const response = await fetch(
         `https://api.telegram.org/bot${TOKEN}/sendMessage`,
@@ -41,21 +44,31 @@ exports.handler = async (event) => {
             parse_mode: "HTML",
             text: message,
           }),
-        },
+        }
       );
+
+      const data = await response.text();
+
+      console.log("STATUS:", response.status);
+      console.log("TG RESPONSE:", data);
+
       results.push(response.ok);
     }
 
-    // Если хотя бы одна отправка прошла успешно
     if (results.some((res) => res === true)) {
       return {
         statusCode: 200,
         body: JSON.stringify({ status: "success" }),
       };
     } else {
-      return { statusCode: 500, body: JSON.stringify({ status: "error" }) };
+      return {
+        statusCode: 500,
+        body: JSON.stringify({ status: "error" }),
+      };
     }
   } catch (error) {
+    console.error("FUNCTION ERROR:", error);
+
     return {
       statusCode: 500,
       body: JSON.stringify({ error: error.toString() }),
