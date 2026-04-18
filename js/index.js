@@ -2,12 +2,16 @@ const openBtn = document.querySelectorAll("[data-open]");
 const closeBtn = document.querySelector("[data-close]");
 const backdrop = document.querySelector("[data-backdrop]");
 const serviceInput = document.getElementById("modal-service-input");
+
 const openBurger = document.querySelector("[data-openBurger]");
 const closeBurger = document.querySelector("[data-closeBurger]");
 const burgerBackdrop = document.querySelector("[data-burgerBackdrop]");
 const burgerLinks = document.querySelectorAll("[data-bur-links]");
 const headerMenu = document.querySelector(".header__menu");
 
+// =======================
+// HEADER SCROLL
+// =======================
 function handleScroll() {
   if (window.innerWidth >= 1200) {
     if (window.scrollY > 50) {
@@ -19,9 +23,11 @@ function handleScroll() {
     headerMenu.classList.remove("header__menu--small");
   }
 }
-
 window.addEventListener("scroll", handleScroll);
 
+// =======================
+// BURGER
+// =======================
 burgerLinks.forEach((link) => {
   link.addEventListener("click", () => {
     burgerBackdrop.classList.add("is-hidden");
@@ -39,11 +45,37 @@ closeBurger.addEventListener("click", () => {
   document.body.classList.remove("no-scroll");
 });
 
-function toggle() {
-  backdrop.classList.toggle("is-hidden");
-  document.body.classList.toggle("no-scroll");
+// =======================
+// RESET MODAL
+// =======================
+function resetModal() {
+  const form = backdrop.querySelector("form");
+  const orderForm = backdrop.querySelector("[data-order-form]");
+  const success = backdrop.querySelector("[data-success]");
+  const error = backdrop.querySelector("[data-error]");
+  const order = backdrop.querySelector("[data-order]");
+  const submitBtn = backdrop.querySelector('button[type="submit"]');
+
+  if (form) form.reset();
+
+  if (orderForm) orderForm.classList.remove("is-hidden");
+  if (success) success.classList.add("is-hidden");
+  if (error) error.classList.add("is-hidden");
+
+  if (order) order.textContent = "";
+
+  if (submitBtn) {
+    submitBtn.disabled = false;
+    submitBtn.textContent = "Відправити";
+  }
+
+  // очищаем услугу
+  serviceInput.value = "";
 }
 
+// =======================
+// OPEN MODAL
+// =======================
 openBtn.forEach((btn) => {
   btn.addEventListener("click", () => {
     const serviceName = btn.dataset.service;
@@ -54,21 +86,28 @@ openBtn.forEach((btn) => {
   });
 });
 
+// =======================
+// CLOSE MODAL
+// =======================
+function closeModal() {
+  backdrop.classList.add("is-hidden");
+  document.body.classList.remove("no-scroll");
+  resetModal();
+}
+
 backdrop.addEventListener("click", (e) => {
   if (e.target === backdrop) {
-    toggle();
-    serviceInput.value = "";
+    closeModal();
   }
 });
 
-closeBtn.addEventListener("click", (e) => {
-  toggle();
-  serviceInput.value = "";
+closeBtn.addEventListener("click", () => {
+  closeModal();
 });
 
-// --------------------------------------------/
-
-// 1. Функция отправки
+// =======================
+// SEND TO TELEGRAM
+// =======================
 async function sendToTelegram(data) {
   try {
     const response = await fetch("/.netlify/functions/send-tg", {
@@ -83,26 +122,24 @@ async function sendToTelegram(data) {
   }
 }
 
-// 2. Инициализация всех форм
+// =======================
+// FORMS
+// =======================
 const forms = document.querySelectorAll("form");
 
 forms.forEach((form) => {
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    // --- ПРОВЕРКА НА БОТА ---
+    // --- Honeypot ---
     const honeypot = form.querySelector('input[name="company"]');
     if (honeypot && honeypot.value.trim() !== "") {
       console.warn("Bot detected 🐛");
       return;
     }
 
-    // --- ГЕНЕРАЦИЯ ДАННЫХ ЗАКАЗА ---
-    const baseNumber = 5100;
-    const startDate = new Date("2026-01-01").getTime();
-    const now = Date.now();
-    const minutesPassed = Math.floor((now - startDate) / 60000);
-    const orderId = `OD-${baseNumber + minutesPassed}`;
+    // --- ID ---
+    const orderId = "OD-" + Date.now().toString().slice(-6);
 
     const formattedDate = new Date().toLocaleString("uk-UA", {
       timeZone: "Europe/Kyiv",
@@ -113,66 +150,51 @@ forms.forEach((form) => {
       minute: "2-digit",
     });
 
-    // --- СБОР ДАННЫХ ИЗ ПОЛЕЙ ---
+    // --- DATA ---
     const fd = new FormData(form);
     const formData = {
-      orderId: orderId, // Отправляем уже готовый ID
-      date: formattedDate, // Отправляем готовую дату
+      orderId,
+      date: formattedDate,
       name: fd.get("name"),
-      phone: fd.get("phone"),
+      phone: fd.get("telephone"),
       service: fd.get("service"),
       comment: fd.get("comment"),
     };
 
-    // --- ОТПРАВКА ---
-    const submitBtn = form.querySelector('button[type="submit"]');
-    if (submitBtn) submitBtn.disabled = true;
+    // --- VALIDATION ---
+    if (!formData.name || !formData.phone) {
+      alert("Заповніть обов'язкові поля");
+      return;
+    }
 
-    const success = await sendToTelegram(formData);
+    // --- UI ---
+    const messageSuccess = backdrop.querySelector("[data-success]");
+    const messageError = backdrop.querySelector("[data-error]");
+    const messageOrder = backdrop.querySelector("[data-order]");
+    const orderForm = backdrop.querySelector("[data-order-form]");
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Відправка...";
+    }
+
+    // --- SEND ---
+    // const success = await sendToTelegram(formData);
+    const success = true; // для теста
 
     if (success) {
       form.reset();
-      // Выводим красивое подтверждение (можно заменить на замену HTML блока)
-      alert(`Дякуємо! Ваша заявка ${orderId} прийнята. Ми зателефонуємо вам.`);
+      orderForm.classList.add("is-hidden");
+      messageOrder.textContent = orderId;
+      messageSuccess.classList.remove("is-hidden");
     } else {
-      alert("Помилка при відправці. Спробуйте пізніше.");
+      messageError.classList.remove("is-hidden");
     }
 
-    if (submitBtn) submitBtn.disabled = false;
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Відправити";
+    }
   });
 });
-
-// // Функция отправки в телегу
-// async function formSubmit(formData, form) {
-//   try {
-//     const res = await fetch("/.netlify/functions/send-tg", {
-//       method: "POST",
-//       body: JSON.stringify(formData),
-//     });
-//     if (res.ok) {
-//       form.reset();
-//     }
-//   } catch (error) {}
-// }
-
-// // Делаем для каждой формы
-// forms.forEach((form) => {
-//   // Добавляем слушетеля на отправку, если словили жука то шмяк
-//   form.addEventListener("submit", function (e) {
-//     const honeypot = form.querySelector('input[name="company"]');
-//     if (honeypot && honeypot.value.trim() !== "") {
-//       e.preventDefault();
-//       console.log("Bot detected 🐛");
-//       return false;
-//     }
-//     e.preventDefault();
-
-//     const formData = {
-//       name: form[0].value,
-//       phone: form[1].value,
-//       service: form[2].value,
-//       comment: form[3].value,
-//     };
-//     console.log(formData);
-//   });
-// });
