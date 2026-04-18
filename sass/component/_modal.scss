@@ -22,7 +22,7 @@
   width: 90%;
   padding: 20px;
   position: absolute;
-  top: 100px;
+  top: 60px;
   left: 50%;
   transform: translate(-50%, 0%);
   background-color: var(--modal-bg-color);
@@ -40,6 +40,8 @@
   @include desktop {
     min-width: 528px;
     min-height: 581px;
+    max-width: 1000px;
+    top: 120px;
   }
 
   .backdrop.is-hidden & {
@@ -66,5 +68,39 @@
 
   &:hover {
     fill: var(--accent-color);
+  }
+}
+
+.modal__after__img {
+  display: block;
+  width: 350px;
+  height: 253px;
+  margin: 0 auto 30px;
+}
+
+.modal__after {
+  text-align: center;
+  animation: fadeIn 0.4s ease;
+}
+.modal__after.is-hidden,
+.modal__after__error.is-hidden {
+  display: none;
+}
+.modal-order.is-hidden {
+  display: none;
+}
+
+.order__number {
+  color: var(--accent-color);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

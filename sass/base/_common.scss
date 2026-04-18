@@ -35,3 +35,11 @@ body.no-scroll {
 main {
   flex: 1;
 }
+
+.policy__link {
+  text-decoration: underline;
+  transition: color var(--animation-main);
+  &:hover {
+    color: var(--accent-second-color);
+  }
+}

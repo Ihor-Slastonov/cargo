@@ -1,3 +1,10 @@
+.section.services {
+  padding-top: 30px;
+  @include desktop {
+    padding-top: 48px;
+  }
+}
+
 .services__list {
   display: flex;
   flex-direction: column;
@@ -10,6 +17,10 @@
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
     align-items: stretch;
+  }
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px 20px;
   }
 }
 

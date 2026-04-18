@@ -29,3 +29,18 @@
 .btn--primary.btn--full {
   width: 100%;
 }
+
+.btn--yellow {
+  background-color: var(--accent-action-color);
+  &:hover,
+  &:focus {
+    background-color: var(--accent-dark-color);
+  }
+}
+
+.btn--desktop {
+  display: none;
+  @include desktop {
+    display: flex;
+  }
+}
