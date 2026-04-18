@@ -180,8 +180,7 @@ forms.forEach((form) => {
     }
 
     // --- SEND ---
-    // const success = await sendToTelegram(formData);
-    const success = true; // для теста
+    const success = await sendToTelegram(formData);
 
     if (success) {
       form.reset();
